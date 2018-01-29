@@ -98,6 +98,12 @@ Add a custom configuration:
     mv ~/.config/dscanner/dscanner.ini .dscanner.ini
     dub run dscanner -- --styleCheck source --config .dscanner.ini
 
+Why don't you use Docker?
+-------------------------
+
+Docker is typically used to allow a consistent work environment, but in my use cases Docker isn't available.
+If you want to use Docker, check out the [D docker images](https://hub.docker.com/r/dlanguage/dmd/).
+
 I have more questions
 ---------------------
 
