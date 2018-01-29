@@ -43,7 +43,7 @@ I want to use Travis for my project
 
 Simply enable the project on Travis.
 
-I want to sue Continuous Integration service X for my project
+I want to use Continuous Integration service X for my project
 -------------------------------------------------------------
 
 The D compiler bootstrapping in `make` will automagically work.
@@ -68,7 +68,7 @@ First, add a unittests:
 ```d
 unittest
 {
-  assert(1 = 1, "D math works as expected.");
+    assert(1 == 1, "D math works as expected.");
 }
 ```
 
