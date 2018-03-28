@@ -16,11 +16,11 @@ bin:
 
 bin/dmd-$(DMD_VERSION)/dmd2: | bin
 	@mkdir -p $(dir $@)
-	curl -fSL --retry 3 "http://downloads.dlang.org/releases/2.x/$(DMD_VERSION)/dmd.$(DMD_VERSION).linux.tar.xz" | tar -Jxf - -C $(dir $@)
+	curl -fSL --retry 10 "http://downloads.dlang.org/releases/2.x/$(DMD_VERSION)/dmd.$(DMD_VERSION).linux.tar.xz" | tar -Jxf - -C $(dir $@)
 bin/dmd-$(DMD_VERSION)/dmd2/linux/bin64/dmd: | bin/dmd-$(DMD_VERSION)/dmd2
 
 bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM): | bin
-	curl -fSL --retry 3 "https://github.com/ldc-developers/ldc/releases/download/v$(LDC_VERSION)/ldc2-$(LDC_VERSION)-linux-$(PLATFORM).tar.xz" \
+	curl -fSL --retry 10 "https://github.com/ldc-developers/ldc/releases/download/v$(LDC_VERSION)/ldc2-$(LDC_VERSION)-linux-$(PLATFORM).tar.xz" \
 	| tar -Jxf - -C $(dir $@)
 
 bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM)/bin/ldc2: | bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM)
