@@ -85,5 +85,13 @@ dub_opt: $(LDUB)
 test: $(DUB)
 	$(DUB) test
 
+style: $(DUB)
+	@$(DUB) fetch dscanner
+	$(DUB) run dscanner -- --styleCheck $D
+
+format: $(DUB)
+	@$(DUB) fetch dfmt
+	$(DUB) run dfmt -- $D
+
 clean:
 	rm -rf bin
