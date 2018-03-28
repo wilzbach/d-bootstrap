@@ -4,4 +4,11 @@ authors "Your Name"
 copyright "Copyright © 2018, Your Name"
 license "BSL-1.0"
 targetPath "bin"
-targetType "executable"
+
+configuration "application" {
+	targetType "executable"
+}
+
+configuration "library" {
+	targetType "library"
+}
