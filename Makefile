@@ -20,7 +20,8 @@ LDC_LTO_FLAGs=-flto=full -linker=gold -L-L$(LDC_LTO)/lib
 ################################################################################
 # Auto-bootstrap DMD & LDC
 #
-# This also sets convenience symlinks like bin/dmd for usage outside of Make
+# This also sets convenience symlinks like bin/dmd or bin/ldc
+# for usage outside of Make
 ################################################################################
 
 bin:
@@ -35,6 +36,8 @@ bin/dmd-$(DMD_VERSION)/dmd2: | bin
 $(DMD): | bin/dmd-$(DMD_VERSION)/dmd2
 $(RDMD): | bin/dmd-$(DMD_VERSION)/dmd2
 $(DUB): | bin/dmd-$(DMD_VERSION)/dmd2
+setup-dmd: $(DMD)
+setup-dub: $(DMD)
 
 bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM): | bin
 	curl -fSL --retry 10 "https://github.com/ldc-developers/ldc/releases/download/v$(LDC_VERSION)/ldc2-$(LDC_VERSION)-linux-$(PLATFORM).tar.xz" \
@@ -48,6 +51,7 @@ $(LDMD): | bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM)
 $(LDUB): | bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM)
 $(LRDMD): | bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM)
 $(LDC_BUILD_RT): | bin/ldc2-$(LDC_VERSION)-linux-$(PLATFORM)
+setup-ldc: $(LDC)
 
 $(LDC_LTO): | $(LDC_BUILD_RT)
 	$| --buildDir $@
